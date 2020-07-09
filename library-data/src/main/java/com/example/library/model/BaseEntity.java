@@ -14,4 +14,8 @@ public class BaseEntity implements Serializable {
     @Getter
     @Setter
     private Long id;
+
+    public Long getId() {
+        return this.id;
+    }
 }
