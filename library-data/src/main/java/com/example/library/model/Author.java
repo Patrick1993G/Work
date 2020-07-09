@@ -5,7 +5,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-public class Author {
+public class Author extends BaseEntity{
     @Getter
     @Setter
     private String name,surname,age;

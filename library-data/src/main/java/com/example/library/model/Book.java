@@ -3,7 +3,7 @@ package com.example.library.model;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Book {
+public class Book extends BaseEntity{
     @Getter
     @Setter
     private String title;
