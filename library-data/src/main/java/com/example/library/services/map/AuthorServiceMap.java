@@ -21,7 +21,7 @@ public class AuthorServiceMap extends AbstractMapService<Author,Long> implements
 
     @Override
     public Author save(Author obj) {
-        return super.save(obj.getId(),obj);
+        return super.save(obj);
     }
 
     @Override

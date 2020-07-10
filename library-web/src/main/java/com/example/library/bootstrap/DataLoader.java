@@ -25,7 +25,6 @@ public class DataLoader implements CommandLineRunner {
         Author author = new Author();
         Book book = new Book();
 
-        author.setId(1L);
         author.setName("Jk");
         author.setSurname("Rowling");
         author.setAge((byte) 30);
@@ -34,7 +33,6 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Authors Loaded");
 
         Category category = new Category("Fiction");
-        book.setId(1L);
         book.setTitle("Harry Potter 1");
         book.setCategory(category);
         book.setAuthor(author);

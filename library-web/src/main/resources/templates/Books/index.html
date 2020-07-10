@@ -6,6 +6,33 @@
     <title>List Of Books</title>
 </head>
 <body>
+<!--/*@thymesVar id="book" type="com.example.library.model.Book"*/-->
 <h1 th:text="'List of Books'">List Of Books</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>ISBN</th>
+        <th>Number of pages</th>
+        <th>Price $</th>
+        <th>Author name</th>
+        <th>Author surname</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book?.id}">1</td>
+        <td th:text="${book?.title}">book title</td>
+        <td th:text="${book?.category.type}">category</td>
+        <td th:text="${book?.isbn}">1</td>
+        <td th:text="${book?.numOfPages}">1</td>
+        <td th:text="${book?.price}">1</td>
+        <td th:text="${book?.author.name}">authorName</td>
+        <td th:text="${book?.author.surname}">authorSurname</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

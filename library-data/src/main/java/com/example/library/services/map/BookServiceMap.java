@@ -21,7 +21,7 @@ public class BookServiceMap extends AbstractMapService<Book,Long> implements Boo
 
     @Override
     public Book save(Book obj) {
-        return super.save(obj.getId(),obj);
+        return super.save(obj);
     }
 
     @Override
