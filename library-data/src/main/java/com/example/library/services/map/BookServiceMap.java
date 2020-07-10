@@ -4,9 +4,10 @@ import com.example.library.model.Author;
 import com.example.library.model.Book;
 import com.example.library.services.BookService;
 import com.example.library.services.CrudService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class BookServiceMap extends AbstractMapService<Book,Long> implements BookService {
     @Override
     public Set<Book> findAll() {

@@ -5,8 +5,6 @@ import com.example.library.model.Book;
 import com.example.library.model.Category;
 import com.example.library.services.AuthorService;
 import com.example.library.services.BookService;
-import com.example.library.services.map.AuthorServiceMap;
-import com.example.library.services.map.BookServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,9 +15,9 @@ public class DataLoader implements CommandLineRunner {
     private final AuthorService authorService;
     private final BookService bookService;
 
-    public DataLoader() {
-        authorService = new AuthorServiceMap();
-        bookService = new BookServiceMap();
+    public DataLoader(AuthorService authorService, BookService bookService) {
+        this.authorService = authorService;
+        this.bookService = bookService;
     }
 
     @Override
