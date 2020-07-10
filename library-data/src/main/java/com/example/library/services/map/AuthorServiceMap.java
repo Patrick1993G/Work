@@ -1,11 +1,12 @@
 package com.example.library.services.map;
 
 import com.example.library.model.Author;
+import com.example.library.services.AuthorService;
 import com.example.library.services.CrudService;
 
 import java.util.Set;
 
-public class AuthorServiceMap extends AbstractMapService<Author,Long> implements CrudService<Author,Long> {
+public class AuthorServiceMap extends AbstractMapService<Author,Long> implements AuthorService {
     @Override
     public Set<Author> findAll() {
         return super.findAll();
@@ -29,5 +30,10 @@ public class AuthorServiceMap extends AbstractMapService<Author,Long> implements
     @Override
     public Author findById(Long id) {
         return this.findById(id);
+    }
+
+    @Override
+    public Author findByLastName(String lastName) {
+        return null;
     }
 }
