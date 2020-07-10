@@ -12,6 +12,11 @@
     <artifactId>library-web</artifactId>
     <dependencies>
         <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>library-data</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <artifactId>library</artifactId>
             <groupId>com.example</groupId>
             <version>0.0.1-SNAPSHOT</version>
