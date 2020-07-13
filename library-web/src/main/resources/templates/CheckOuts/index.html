@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Of CheckOuts</title>
+</head>
+<body>
+<!--/*@thymesVar id="checkouts" type="com.example.library.model.Checkout"*/-->
+<h1 th:text="'List Of Checkouts'">List Of Checkouts</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Book</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="checkout : ${checkouts}">
+        <td th:text="${checkout?.id}">1</td>
+        <td th:text="${checkout?.customer.firstName}">john</td>
+        <td th:text="${checkout?.customer.surname}">doe</td>
+        <td th:text="${checkout?.fromDate}"></td>
+        <td th:text="${checkout?.toDate}"></td>
+        <td th:text="${checkout?.book.title}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

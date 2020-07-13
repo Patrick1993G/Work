@@ -22,7 +22,10 @@ public class Checkout extends BaseEntity {
     @Column(name = "toDate")
     private LocalDate toDate;
 
+    @Column(name="book")
     private Book book;
 
+    @Column(name = "customer")
+    private Customer customer;
 
 }
