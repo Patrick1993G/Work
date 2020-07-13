@@ -2,13 +2,13 @@ package com.example.library.services.map;
 
 import com.example.library.model.Author;
 import com.example.library.services.AuthorService;
-import com.example.library.services.CrudService;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-public class AuthorServiceMap extends AbstractMapService<Author,Long> implements AuthorService {
+@Profile({"default","map"})
+public class AuthorServiceMap extends AbstractServiceMap<Author,Long> implements AuthorService {
     @Override
     public Set<Author> findAll() {
         return super.findAll();

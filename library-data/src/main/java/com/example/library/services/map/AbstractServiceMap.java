@@ -1,12 +1,10 @@
 package com.example.library.services.map;
 
-import com.example.library.model.Author;
 import com.example.library.model.BaseEntity;
-import com.sun.xml.bind.v2.model.core.ID;
 
 import java.util.*;
 
-public abstract class AbstractMapService<T extends BaseEntity,ID extends Long>{
+public abstract class AbstractServiceMap<T extends BaseEntity,ID extends Long>{
 
     protected Map<Long,T> map = new HashMap<>();
 
