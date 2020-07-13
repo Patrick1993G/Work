@@ -5,25 +5,23 @@ import com.example.library.services.AuthorService;
 import com.example.library.services.BookService;
 import com.example.library.services.CheckoutService;
 import com.example.library.services.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
 @Component
+
 public class DataLoader implements CommandLineRunner {
 
 
-    private final AuthorService authorService;
-    private final BookService bookService;
-    private final CustomerService customerService;
-    private final CheckoutService checkoutService;
-    public DataLoader(AuthorService authorService, BookService bookService, CustomerService customerService, CheckoutService checkoutService) {
-        this.authorService = authorService;
-        this.bookService = bookService;
-        this.customerService = customerService;
-        this.checkoutService = checkoutService;
-    }
+    @Autowired @Qualifier("authorServiceMap") private AuthorService authorService;
+    @Autowired @Qualifier("bookServiceMap")private BookService bookService;
+    @Autowired @Qualifier("customerServiceMap")private CustomerService customerService;
+    @Autowired @Qualifier("checkoutServiceMap")private CheckoutService checkoutService;
+
 
     @Override
     public void run(String... args) throws Exception {

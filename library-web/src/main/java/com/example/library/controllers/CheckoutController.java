@@ -12,7 +12,7 @@ public class CheckoutController {
     public CheckoutController(CheckoutService checkoutService){
         this.checkoutService = checkoutService;
     }
-    @RequestMapping({"","/","index.html"})
+    @RequestMapping({"/checkouts","/checkouts/index","/checkouts/index.html"})
     public String ListCheckouts(Model model){
         model.addAttribute("checkouts", checkoutService.findAll());
         return "checkouts/index";

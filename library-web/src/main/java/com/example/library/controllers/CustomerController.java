@@ -11,7 +11,7 @@ public class CustomerController {
     public CustomerController(CustomerService customerService){
         this.customerService = customerService;
     }
-    @RequestMapping({"","/","index.html"})
+    @RequestMapping({"/customers","/customers/index","/customers/index.html"})
     public String ListCustomers(Model model){
         model.addAttribute("customers", customerService.findAll());
         return "customers/index";

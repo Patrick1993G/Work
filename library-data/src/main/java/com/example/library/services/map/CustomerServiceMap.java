@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-@Profile({"default","map"})
+//@Profile({"default","map"})
 public class CustomerServiceMap extends AbstractServiceMap<Customer,Long> implements CustomerService {
     @Override
     public Customer findByLastName(String lastName) {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-@Profile({"default","map"})
+//@Profile({"default","map"})
 public class AuthorServiceMap extends AbstractServiceMap<Author,Long> implements AuthorService {
     @Override
     public Set<Author> findAll() {

@@ -3,8 +3,9 @@ package com.example.library.model;
 import lombok.*;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Table;
-
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
