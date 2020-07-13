@@ -1,10 +1,11 @@
 package com.example.library.model;
 
 import lombok.*;
+import org.hibernate.annotations.ManyToAny;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,13 +14,16 @@ import javax.persistence.Table;
 public class Category extends BaseEntity{
     @Getter
     @Setter
-    @Column(name="type")
-    private String type;
+    @Column(name="categoryName")
+    private String name;
+
+    @OneToMany (mappedBy = "category")
+    private Set<Book> books = new HashSet<>();
 
     @Builder
-    public Category(Long id, String type) {
+    public Category(Long id, String name) {
         super(id);
-        this.type = type;
+        this.name = name;
     }
 
 }

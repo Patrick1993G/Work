@@ -11,6 +11,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
 
@@ -34,7 +36,8 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Authors Loaded");
 
         Book book = new Book();
-        Category category = new Category("Fiction");
+        Category category = new Category();
+        category.setName("Fiction");
         book.setTitle("Harry Potter 1");
         book.setCategory(category);
         book.setAuthor(author);
@@ -48,16 +51,20 @@ public class DataLoader implements CommandLineRunner {
         customer.setName("Philip");
         customer.setSurname("Gatt");
         customer.setAge((byte) 32);
+        customerService.save(customer);
         System.out.println("customers Loaded ");
 
         Checkout checkout = new Checkout();
+        Set<Book> books = new HashSet<>();
         LocalDate fromDate,toDate;
         fromDate = LocalDate.now();
         toDate=fromDate.plusDays(3);
-        checkout.setBook(book);
+        books.add(book);
+        checkout.setBooks(books);
         checkout.setFromDate(fromDate);
         checkout.setToDate(toDate);
         checkout.setCustomer(customer);
+        checkoutService.save(checkout);
         System.out.println("checkouts Loaded");
     }
 }

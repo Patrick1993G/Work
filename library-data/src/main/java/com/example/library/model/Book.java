@@ -2,9 +2,8 @@ package com.example.library.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 @Entity
 @Getter
 @Setter
@@ -14,8 +13,11 @@ import javax.persistence.Table;
 public class Book extends BaseEntity{
     @Column(name="title")
     private String title;
-    @Column(name="category")
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
+
     @Column(name="isbn")
     private Long isbn;
     @Column(name="nofPages")
@@ -23,14 +25,21 @@ public class Book extends BaseEntity{
     @Column(name="price")
     private Short price;
 
-    @Column(name="author")
+    @ManyToOne
+    @JoinColumn(name="author_id")
     private Author author;
 
+    @ManyToOne
+    @JoinColumn(name="checkout_id")
+    private Checkout checkout;
+
+
+
     @Builder
-    public Book(Long id, String title, Category category, Long isbn, Short numOfPages, Short price, Author author) {
+    public Book(Long id, String title, Category name, Long isbn, Short numOfPages, Short price, Author author) {
         super(id);
         this.title = title;
-        this.category = category;
+        this.category = name;
         this.isbn = isbn;
         this.numOfPages = numOfPages;
         this.price = price;

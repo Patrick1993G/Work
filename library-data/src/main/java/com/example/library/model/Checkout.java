@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,10 +22,11 @@ public class Checkout extends BaseEntity {
     @Column(name = "toDate")
     private LocalDate toDate;
 
-    @Column(name="book")
-    private Book book;
+    @OneToMany(mappedBy = "checkout")
+    private Set<Book> books = new HashSet<>();
 
-    @Column(name = "customer")
+
+    @OneToOne(mappedBy = "checkout",cascade = CascadeType.ALL)
     private Customer customer;
 
 }

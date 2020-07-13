@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/checkouts")
 @Controller
 public class CheckoutController {
     private final CheckoutService checkoutService;

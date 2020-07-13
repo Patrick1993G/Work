@@ -25,7 +25,7 @@
     <tr th:each="book : ${books}">
         <td th:text="${book?.id}">1</td>
         <td th:text="${book?.title}">book title</td>
-        <td th:text="${book?.category.type}">category</td>
+        <td th:text="${book?.category.name}">category</td>
         <td th:text="${book?.isbn}">1</td>
         <td th:text="${book?.numOfPages}">1</td>
         <td th:text="${book?.price}">1</td>

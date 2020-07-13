@@ -2,9 +2,7 @@ package com.example.library.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,13 +14,16 @@ import java.util.Set;
 @Table(name = "customers")
 public class Customer extends Person {
 
-
     @Builder
-    public Customer(Long id, String name, String surname, Byte age, Set<Book> books) {
+    public Customer(Long id, String name, String surname, Byte age, Checkout checkout) {
         super(id, name, surname, age);
-        this.books = books;
+        this.checkout = checkout;
     }
 
-    @OneToMany(mappedBy = "customer")
-    private Set<Book> books = new HashSet<>();
+
+
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "checkout_id")
+    private Checkout checkout;
 }

@@ -3,10 +3,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List Of CheckOuts</title>
+    <title>List Of Checkouts</title>
 </head>
 <body>
 <!--/*@thymesVar id="checkouts" type="com.example.library.model.Checkout"*/-->
+<!--/*@thymesVar id="books" type="com.example.library.model.Checkout.books"*/-->
 <h1 th:text="'List Of Checkouts'">List Of Checkouts</h1>
 <table>
     <thead>
@@ -16,17 +17,19 @@
         <th>Last Name</th>
         <th>From</th>
         <th>To</th>
-        <th>Book</th>
+        <th>Books</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="checkout : ${checkouts}">
         <td th:text="${checkout?.id}">1</td>
-        <td th:text="${checkout?.customer.firstName}">john</td>
+        <td th:text="${checkout?.customer.name}">john</td>
         <td th:text="${checkout?.customer.surname}">doe</td>
         <td th:text="${checkout?.fromDate}"></td>
         <td th:text="${checkout?.toDate}"></td>
-        <td th:text="${checkout?.book.title}"></td>
+        <td th:each="book:${books}">
+            <li th:text="${book.title}">Books</li>
+        </td>
     </tr>
     </tbody>
 </table>
