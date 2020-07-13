@@ -1,26 +1,32 @@
 package com.example.library.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@Table(name = "authors")
 
-public class Author extends BaseEntity{
-    @Getter
-    @Setter
-    private String name,surname;
-    @Getter
-    @Setter
-    private Byte numOfBooks,age;
-
-    public Author(){
-
-    }
-    public Author(String name, String surname, Byte age, Byte numOfBooks) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
+public class Author extends Person{
+    @Column(name="numOfBooks")
+    private Byte numOfBooks;
+    @OneToMany(mappedBy = "author")
+    private Set<Book> books = new HashSet<>();
+    @Builder
+    public Author(String name, String surname, Byte age, Byte numOfBooks, Set<Book> books) {
+        super(name, surname, age);
         this.numOfBooks = numOfBooks;
+        this.books = books;
     }
+
 }

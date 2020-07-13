@@ -1,33 +1,39 @@
 package com.example.library.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="books")
 public class Book extends BaseEntity{
-    @Getter
-    @Setter
+    @Column(name="title")
     private String title;
-    @Getter
-    @Setter
+    @Column(name="category")
     private Category category;
-    @Getter
-    @Setter
+    @Column(name="isbn")
     private Long isbn;
-    @Getter
-    @Setter
-    private Short numOfPages,price;
-    @Getter
-    @Setter
-    private Author author;
-    public Book(){
+    @Column(name="nofPages")
+    private Short numOfPages;
+    @Column(name="price")
+    private Short price;
 
-    }
-    public Book(String Title, Category category, Long isbn, Short numOfPages, Short price, Author author) {
-        this.title = Title;
+    @Column(name="author")
+    private Author author;
+
+    @Builder
+    public Book(Long id, String title, Category category, Long isbn, Short numOfPages, Short price, Author author) {
+        super(id);
+        this.title = title;
         this.category = category;
         this.isbn = isbn;
         this.numOfPages = numOfPages;
         this.price = price;
         this.author = author;
     }
+
 }
