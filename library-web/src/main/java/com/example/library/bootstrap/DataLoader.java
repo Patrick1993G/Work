@@ -1,10 +1,7 @@
 package com.example.library.bootstrap;
 
 import com.example.library.model.*;
-import com.example.library.services.AuthorService;
-import com.example.library.services.BookService;
-import com.example.library.services.CheckoutService;
-import com.example.library.services.CustomerService;
+import com.example.library.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -15,7 +12,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Component
-
 public class DataLoader implements CommandLineRunner {
 
 
@@ -23,7 +19,7 @@ public class DataLoader implements CommandLineRunner {
     @Autowired @Qualifier("bookServiceMap")private BookService bookService;
     @Autowired @Qualifier("customerServiceMap")private CustomerService customerService;
     @Autowired @Qualifier("checkoutServiceMap")private CheckoutService checkoutService;
-
+    @Autowired @Qualifier("categoryServiceMap") private CategoryService categoryService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -36,8 +32,20 @@ public class DataLoader implements CommandLineRunner {
         System.out.println("Authors Loaded");
 
         Book book = new Book();
+        //sample categories
         Category category = new Category();
         category.setName("Fiction");
+        Category category2 = new Category();
+        category.setName("Sci-Fi");
+        Category category3 = new Category();
+        category.setName("Documentary");
+        Category category4 = new Category();
+        category.setName("Horror");
+        categoryService.save(category);
+        categoryService.save(category2);
+        categoryService.save(category3);
+        categoryService.save(category4);
+        //sample books
         book.setTitle("Harry Potter 1");
         book.setCategory(category);
         book.setAuthor(author);
