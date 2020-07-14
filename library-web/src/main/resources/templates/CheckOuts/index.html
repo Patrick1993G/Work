@@ -27,8 +27,8 @@
         <td th:text="${checkout?.customer.surname}">doe</td>
         <td th:text="${checkout?.fromDate}"></td>
         <td th:text="${checkout?.toDate}"></td>
-        <td th:each="book:${books}">
-            <li th:text="${book.title}">Books</li>
+        <td th:each="book:${checkout.books}">
+            <li th:text="${book?.title}"></li>
         </td>
     </tr>
     </tbody>

@@ -20,10 +20,6 @@ public class Customer extends Person {
         this.checkout = checkout;
     }
 
-
-
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "checkout_id")
+    @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
     private Checkout checkout;
 }

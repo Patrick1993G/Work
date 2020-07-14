@@ -26,7 +26,8 @@ public class Checkout extends BaseEntity {
     private Set<Book> books = new HashSet<>();
 
 
-    @OneToOne(mappedBy = "checkout",cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
 }
