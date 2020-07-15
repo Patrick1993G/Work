@@ -29,6 +29,21 @@ public class DataLoader implements CommandLineRunner {
         author.setAge((byte) 30);
         author.setNumOfBooks((byte) 1);
         authorService.save(author);
+
+        Author author2 = new Author();
+        author2.setName("Martina");
+        author2.setSurname("Cole");
+        author2.setAge((byte) 40);
+        author2.setNumOfBooks((byte) 6);
+        authorService.save(author2);
+
+        Author author3 = new Author();
+        author3.setName("Agatha");
+        author3.setSurname("Christie");
+        author3.setAge((byte) 0);
+        author3.setNumOfBooks((byte) 80);
+        authorService.save(author3);
+
         System.out.println("Authors Loaded");
 
         Book book = new Book();
@@ -53,7 +68,18 @@ public class DataLoader implements CommandLineRunner {
         book.setNumOfPages((short)200);
         book.setPrice((short) 13);
         bookService.save(book);
+
+        book.setTitle("Harry Potter 2");
+        book.setCategory(category);
+        book.setAuthor(author2);
+        book.setIsbn(123233L);
+        book.setNumOfPages((short)250);
+        book.setPrice((short) 16);
+        bookService.save(book);
         System.out.println("Books Loaded");
+
+
+
 
         Customer customer = new Customer();
         customer.setName("Philip");
