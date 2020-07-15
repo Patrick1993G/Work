@@ -1,7 +1,8 @@
 package com.example.library.repositories;
 
 import com.example.library.model.Category;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CategoryRepo extends CrudRepository<Category,Long> {
+public interface CategoryRepo extends JpaRepository<Category,Long> {
+    Category findByName(String name);
 }
