@@ -20,7 +20,7 @@ public class Book extends BaseEntity{
 
     @Column(name="isbn")
     private Long isbn;
-    @Column(name="nofPages")
+    @Column(name="noOfPages")
     private Short numOfPages;
     @Column(name="price")
     private Short price;

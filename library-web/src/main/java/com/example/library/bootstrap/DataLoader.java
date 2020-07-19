@@ -1,6 +1,7 @@
 package com.example.library.bootstrap;
 
 import com.example.library.model.*;
+import com.example.library.repositories.*;
 import com.example.library.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,11 +16,11 @@ import java.util.Set;
 public class DataLoader implements CommandLineRunner {
 
 
-    @Autowired @Qualifier("authorServiceMap") private AuthorService authorService;
-    @Autowired @Qualifier("bookServiceMap")private BookService bookService;
-    @Autowired @Qualifier("customerServiceMap")private CustomerService customerService;
-    @Autowired @Qualifier("checkoutServiceMap")private CheckoutService checkoutService;
-    @Autowired @Qualifier("categoryServiceMap") private CategoryService categoryService;
+    @Autowired private AuthorRepo authorRepo;
+    @Autowired private BookRepo bookRepo;
+    @Autowired private CustomerRepo customerRepo;
+    @Autowired private CheckoutRepo checkoutRepo;
+    @Autowired private CategoryRepo categoryRepo;
 
     @Override
     public void run(String... args) throws Exception {
@@ -28,64 +29,62 @@ public class DataLoader implements CommandLineRunner {
         author.setSurname("Rowling");
         author.setAge((byte) 30);
         author.setNumOfBooks((byte) 1);
-        authorService.save(author);
+        authorRepo.save(author);
 
         Author author2 = new Author();
         author2.setName("Martina");
         author2.setSurname("Cole");
         author2.setAge((byte) 40);
         author2.setNumOfBooks((byte) 6);
-        authorService.save(author2);
+        authorRepo.save(author2);
 
         Author author3 = new Author();
         author3.setName("Agatha");
         author3.setSurname("Christie");
         author3.setAge((byte) 0);
         author3.setNumOfBooks((byte) 80);
-        authorService.save(author3);
+        authorRepo.save(author3);
 
         System.out.println("Authors Loaded");
 
-        Book book = new Book();
+        Book book1 = new Book();
+        Book book2 = new Book();
         //sample categories
         Category category = new Category();
         category.setName("Fiction");
+        categoryRepo.save(category);
         Category category2 = new Category();
         category.setName("Sci-Fi");
+        categoryRepo.save(category2);
         Category category3 = new Category();
         category.setName("Documentary");
+        categoryRepo.save(category3);
         Category category4 = new Category();
         category.setName("Horror");
-        categoryService.save(category);
-        categoryService.save(category2);
-        categoryService.save(category3);
-        categoryService.save(category4);
+        categoryRepo.save(category4);
         //sample books
-        book.setTitle("Harry Potter 1");
-        book.setCategory(category);
-        book.setAuthor(author);
-        book.setIsbn(123232L);
-        book.setNumOfPages((short)200);
-        book.setPrice((short) 13);
-        bookService.save(book);
+        book1.setTitle("Harry Potter 1");
+        book1.setCategory(category);
+        book1.setAuthor(author);
+        book1.setIsbn(123232L);
+        book1.setNumOfPages((short)200);
+        book1.setPrice((short) 13);
+        bookRepo.save(book1);
 
-        book.setTitle("Harry Potter 2");
-        book.setCategory(category);
-        book.setAuthor(author2);
-        book.setIsbn(123233L);
-        book.setNumOfPages((short)250);
-        book.setPrice((short) 16);
-        bookService.save(book);
+        book2.setTitle("Harry Potter 2");
+        book2.setCategory(category);
+        book2.setAuthor(author);
+        book2.setIsbn(123233L);
+        book2.setNumOfPages((short)250);
+        book2.setPrice((short) 16);
+        bookRepo.save(book2);
         System.out.println("Books Loaded");
-
-
-
-
+21
         Customer customer = new Customer();
         customer.setName("Philip");
         customer.setSurname("Gatt");
         customer.setAge((byte) 32);
-        customerService.save(customer);
+        customerRepo.save(customer);
         System.out.println("customers Loaded ");
 
         Checkout checkout = new Checkout();
@@ -93,12 +92,12 @@ public class DataLoader implements CommandLineRunner {
         LocalDate fromDate,toDate;
         fromDate = LocalDate.now();
         toDate=fromDate.plusDays(3);
-        books.add(book);
+        books.add(book1);
         checkout.setBooks(books);
         checkout.setFromDate(fromDate);
         checkout.setToDate(toDate);
         checkout.setCustomer(customer);
-        checkoutService.save(checkout);
+        checkoutRepo.save(checkout);
         System.out.println("checkouts Loaded");
     }
 }
