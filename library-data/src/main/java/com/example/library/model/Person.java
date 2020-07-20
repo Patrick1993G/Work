@@ -22,12 +22,15 @@ public class Person extends BaseEntity{
     @Column (name="age")
     private Byte age;
 
-    public Person(Long id,String name, String surname, Byte age)
+    @Column(name= "id_card")
+    private String id_card;
+    public Person(Long id,String name, String surname, Byte age,String id_card)
     {
         super(id);
         this.name = name;
         this.surname = surname;
         this.age = age;
+        this.id_card=id_card;
     }
 
 }

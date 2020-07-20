@@ -15,8 +15,8 @@ import java.util.Set;
 public class Customer extends Person {
 
     @Builder
-    public Customer(Long id, String name, String surname, Byte age, Checkout checkout) {
-        super(id, name, surname, age);
+    public Customer(Long id, String name, String surname, Byte age,String idCard, Checkout checkout) {
+        super(id, name, surname, age,idCard);
         this.checkout = checkout;
     }
 

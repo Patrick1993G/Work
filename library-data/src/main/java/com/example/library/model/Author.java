@@ -23,8 +23,8 @@ public class Author extends Person{
     @OneToMany(mappedBy = "author")
     private Set<Book> books = new HashSet<>();
     @Builder
-    public Author(String name, String surname, Byte age, Byte numOfBooks, Set<Book> books) {
-        super(name, surname, age);
+    public Author(String name, String surname, Byte age,String id_card, Byte numOfBooks, Set<Book> books) {
+        super(name, surname, age,id_card);
         this.numOfBooks = numOfBooks;
         this.books = books;
     }
