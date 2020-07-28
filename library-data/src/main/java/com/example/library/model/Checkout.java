@@ -15,19 +15,19 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "checkouts")
+//@Table(name = "checkouts")
 public class Checkout extends BaseEntity {
-    @Column(name = "fromDate")
+    //@Column(name = "fromDate")
     private LocalDate fromDate;
-    @Column(name = "toDate")
+    //@Column(name = "toDate")
     private LocalDate toDate;
 
-    @OneToMany(mappedBy = "checkout")
+    //@OneToMany(mappedBy = "checkout")
     private Set<Book> books = new HashSet<>();
 
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
+    //@OneToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "customer_id")
     private Customer customer;
 
 }

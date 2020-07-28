@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "customers")
+//@Table(name = "customers")
 public class Customer extends Person {
 
     @Builder
@@ -20,6 +20,6 @@ public class Customer extends Person {
         this.checkout = checkout;
     }
 
-    @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
+    //@OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
     private Checkout checkout;
 }

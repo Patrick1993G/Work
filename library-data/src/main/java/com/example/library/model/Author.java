@@ -15,12 +15,12 @@ import java.util.Set;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "authors")
+//@Table(name = "authors")
 
 public class Author extends Person{
-    @Column(name="numOfBooks")
+    //@Column(name="numOfBooks")
     private Byte numOfBooks;
-    @OneToMany(mappedBy = "author")
+    //@OneToMany(mappedBy = "author")
     private Set<Book> books = new HashSet<>();
     @Builder
     public Author(String name, String surname, Byte age,String id_card, Byte numOfBooks, Set<Book> books) {

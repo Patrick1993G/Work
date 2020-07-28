@@ -17,11 +17,11 @@ import java.util.Set;
 public class DataLoader implements CommandLineRunner {
 
 
-    @Autowired private AuthorRepo authorRepo;
-    @Autowired private BookRepo bookRepo;
-    @Autowired private CustomerRepo customerRepo;
-    @Autowired private CheckoutRepo checkoutRepo;
-    @Autowired private CategoryRepo categoryRepo;
+    //@Autowired private AuthorRepo authorRepo;
+    //@Autowired private BookRepo bookRepo;
+   // @Autowired private CustomerRepo customerRepo;
+    //@Autowired private CheckoutRepo checkoutRepo;
+   // @Autowired private CategoryRepo categoryRepo;
 
     @Override
     public void run(String... args) throws Exception {

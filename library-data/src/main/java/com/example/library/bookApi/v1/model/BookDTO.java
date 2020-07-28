@@ -13,5 +13,5 @@ public class BookDTO {
     private Long isbn;
     private Short noOfPAges;
     private Short price;
-    private Author author;
+   private Author author;
 }

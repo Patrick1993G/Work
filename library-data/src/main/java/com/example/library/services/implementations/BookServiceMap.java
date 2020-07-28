@@ -1,15 +1,13 @@
-package com.example.library.services.map;
+package com.example.library.services.implementations;
 
 import com.example.library.bookApi.v1.mapper.BookMapper;
 import com.example.library.bookApi.v1.model.BookDTO;
-import com.example.library.model.Author;
 import com.example.library.model.Book;
 import com.example.library.repositories.BookRepo;
 import com.example.library.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,7 +30,7 @@ public class BookServiceMap extends AbstractServiceMap<Book,Long> implements Boo
 
     @Override
     public List<BookDTO> getAllBooks() {
-        return bookRepo.findAll().stream().map(bookMapper::bookToBookDTO).collect(Collectors.toList());
+        return super.findAll().stream().map(bookMapper::bookToBookDTO).collect(Collectors.toList());
     }
 
 //    @Override

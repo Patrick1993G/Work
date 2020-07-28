@@ -9,28 +9,28 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="books")
+//@Table(name="books")
 public class Book extends BaseEntity{
-    @Column(name="title")
+    //@Column(name="title")
     private String title;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
+//    @ManyToOne
+//    @JoinColumn(name = "category_id")
     private Category category;
 
-    @Column(name="isbn")
+//    @Column(name="isbn")
     private Long isbn;
-    @Column(name="noOfPages")
+//    @Column(name="noOfPages")
     private Short numOfPages;
-    @Column(name="price")
+//    @Column(name="price")
     private Short price;
 
-    @ManyToOne
-    @JoinColumn(name="author_id")
+//    @ManyToOne
+//    @JoinColumn(name="author_id")
     private Author author;
 
-    @ManyToOne
-    @JoinColumn(name="checkout_id")
+//    @ManyToOne
+//    @JoinColumn(name="checkout_id")
     private Checkout checkout;
 
 
